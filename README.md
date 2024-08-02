@@ -10,7 +10,7 @@
 ```
 
 **Response**
-![Response-Post01](post01.png)
+![Response-Post01](img/post01.png)
 
 
 ### POST02
@@ -21,4 +21,4 @@
 ```
 
 **Response**
-![Response-Post02](post02.png)
+![Response-Post02](img/post02.png)
