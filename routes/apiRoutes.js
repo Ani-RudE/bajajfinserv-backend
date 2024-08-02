@@ -48,4 +48,7 @@ router.post('/', async (req, res) => {
      }
 });
 
+// router.options('/bfhl', cors(corsOptions)); // Enable pre-flight request for POST request
+// router.post('/bfhl', cors(corsOptions), yourExistingPostHandler);
+
 module.exports = router;
