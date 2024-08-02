@@ -7,16 +7,23 @@ dotenv.config();
 
 const app = express();
 
-// CORS middleware
-const corsOptions = {
-  origin: 'https://bajajfinserv-frontend.vercel.app',
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-  optionsSuccessStatus: 204
-};
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://bajajfinserv-frontend.vercel.app',
+  process.env.CORS_ORIGIN
+].filter(Boolean);
 
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  optionsSuccessStatus: 200
+}));
 
 app.use(express.json());
 
